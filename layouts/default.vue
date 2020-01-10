@@ -54,21 +54,21 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       items: [
         {
           title: 'Home',
           icon: 'home',
-          to: { name: 'index' }
+          to: { name: 'index' },
         },
         {
           title: 'Inspire',
           icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
-    }
-  }
-}
+          to: { name: 'inspire' },
+        },
+      ],
+    };
+  },
+};
 </script>
