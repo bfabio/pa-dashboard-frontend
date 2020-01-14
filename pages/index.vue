@@ -1,53 +1,34 @@
 <template>
   <section class="section">
-    <div class="columns is-mobile">
-      <card
-        title="Free"
-        icon="github-circle"
+    <div class="is-mobile">
+      <host
+        v-for="host in hosts"
+        :key="host"
+        :url="host"
       >
         Open source on <a href="https://github.com/buefy/buefy">
           GitHub
         </a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+      </host>
     </div>
   </section>
 </template>
 
 <script>
-import Card from '~/components/Card.vue';
+import Host from '~/components/Host.vue';
 
 export default {
   name: 'HomePage',
-
   components: {
-    Card,
+    Host,
+  },
+  computed: {
+    hosts() {
+      return this.$store.state.hosts.list;
+    },
+  },
+  async fetch({ store }) {
+    return store.dispatch('hosts/fetchHosts');
   },
 };
 </script>
