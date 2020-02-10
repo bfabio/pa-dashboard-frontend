@@ -1,17 +1,37 @@
 <template>
-  <section class="section">
-    <div class="is-mobile">
-      <host
+  <v-container align="center">
+    <v-expansion-panels
+      :accordion="true"
+      :hover="true"
+      :multiple="true"
+    >
+      <v-expansion-panel
         v-for="host in hosts"
         :key="host"
-        :url="host"
       >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </host>
-    </div>
-  </section>
+        <v-expansion-panel-header>
+          <v-row align="center">
+            <v-icon :left="true">
+              mdi-web
+            </v-icon>
+            {{ host }}
+            <v-chip
+              class="ml-auto mr-8"
+              color="success"
+              label
+            >
+              All good
+            </v-chip>
+          </v-row>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <host :url="host">
+            slot
+          </host>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </v-container>
 </template>
 
 <script>

@@ -1,30 +1,52 @@
 <template>
-  <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
+  <v-app>
+    <v-app-bar
+      color="primary"
+      app
+      dark
     >
-      <div class="navbar-brand">
-        <b-navbar-item
-          class="is-size-4"
-          href="/"
-        >
-          ॱit Dashboard
-        </b-navbar-item>
+      <v-app-bar-nav-icon />
 
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
+      <v-toolbar-title>ॱit Dashboard</v-toolbar-title>
 
-    <section class="main-content">
-      <nuxt />
-    </section>
-  </div>
+      <v-spacer />
+
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="n in 5"
+            :key="n"
+            @click="() => {}"
+          >
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid>
+        <nuxt />
+      </v-container>
+    </v-content>
+
+    <v-footer app>
+      <v-layout justify-center>
+        <a href="https://github.com/bfabio/pa-dashboard-frontend">
+          <v-icon>fab fa-github</v-icon>
+        </a>
+      </v-layout>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
