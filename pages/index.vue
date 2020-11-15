@@ -113,9 +113,9 @@ export default {
     ...mapState({ reports: (state) => state.reports.byHostname }),
     ...mapState({ problems: (state) => state.reports.problemsByHostname }),
   },
-  async fetch({ store }) {
-    await store.dispatch('hosts/fetchHosts');
-    await store.dispatch('reports/fetchReports');
+  async mounted() {
+    await this.$store.dispatch('hosts/fetchHosts');
+    await this.$store.dispatch('reports/fetchReports');
   },
   methods: {
     hostname: (url) => url.replace(/^http(s)*:\/\//, ''),
