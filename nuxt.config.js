@@ -52,7 +52,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'https://dashboard.zland.org/',
+    baseURL: 'http://208.167.253.28/',
   },
   /*
   ** Build configuration
